@@ -13,22 +13,22 @@ bot.start(ctx => {
   }
 })
 
-bot.on('message',(ctx)=>{
-    const chatId = process.env.CHAT_ID;
-    const botCommands = "/contribute"
+// bot.on('message',(ctx)=>{
+//     const chatId = process.env.CHAT_ID;
+//     const botCommands = "/contribute"
 
-    if(ctx.message.text===botCommands){
-      ctx.reply(contMessage)
-    }
+//     if(ctx.message.text===botCommands){
+//       ctx.reply(contMessage)
+//     }
 
-    if(ctx.message.text||ctx.message.voice){
-        ctx.telegram.forwardMessage(chatId,ctx.chat.id,ctx.message.message_id)
-    } else {
-        ctx.reply("لطفاً فقط پیام متنی یا صوتی بفرستید!")
-    }
-})
+//     if(ctx.message.text||ctx.message.voice){
+//         ctx.telegram.forwardMessage(chatId,ctx.chat.id,ctx.message.message_id)
+//     } else {
+//         ctx.reply("لطفاً فقط پیام متنی یا صوتی بفرستید!")
+//     }
+// })
 
-bot.command('contribute', Telegraf.reply(contMessage));
+// bot.command('contribute', Telegraf.reply(contMessage));
 
 
 exports.handler = async event => {
