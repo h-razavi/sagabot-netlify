@@ -1,9 +1,7 @@
 const { Telegraf } = require("telegraf")
 require("dotenv").config();
-const {data} = require("../../data/data.js")
+const {data:{messages}} = require("../../data/data.js")
 const bot = new Telegraf(process.env.BOT_TOKEN)
-
-const {messages} = data
 
 bot.start(ctx => {
   try {
