@@ -1,19 +1,19 @@
+import { data } from "../../data/data";
+
 const { Telegraf } = require("telegraf")
 require("dotenv").config();
 const bot = new Telegraf(process.env.BOT_TOKEN)
 
+const {messages} = data
+
 bot.start(ctx => {
-    const message =
-    "سلام؛ به ربات تلگرامی پادکست ساگا خوش اومدید! \n پیام خودتون رو به شکل متنی یا صوتی برای ما بفرستید";
   try {
-    return ctx.reply(message)
+    return ctx.reply(messages.start)
   } catch (e) {
     console.error("error in start action:", e)
     return ctx.reply("Error occured")
   }
 })
-
-const contMessage = "اگر دوست داشتید می‌تونید از ریپازیتوری گیت‌هاب زیر در توسعه و بهبود این ربات تلگرامی به عنوان یک پروژه متن باز کمک کنید \n https://github.com/h-razavi/sagapodcast-bot "
 
 
 bot.on('message',(ctx)=>{
@@ -21,17 +21,17 @@ bot.on('message',(ctx)=>{
     const botCommands = "/contribute"
 
     if(ctx.message.text===botCommands){
-      return ctx.reply(contMessage)
+      return ctx.reply(messages.contribute)
     }
 
     if(ctx.message.text||ctx.message.voice){
         return ctx.telegram.forwardMessage(chatId,ctx.chat.id,ctx.message.message_id)
     } else {
-       return ctx.reply("لطفاً فقط پیام متنی یا صوتی بفرستید!")
+       return ctx.reply(messages.notext)
     }
 })
 
-bot.command('contribute', Telegraf.reply(contMessage));
+bot.command('contribute', Telegraf.reply(messages.contribute));
 
 
 exports.handler = async event => {
