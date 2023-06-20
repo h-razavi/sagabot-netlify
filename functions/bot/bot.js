@@ -13,6 +13,9 @@ bot.start(ctx => {
   }
 })
 
+const contMessage = "اگر دوست داشتید می‌تونید از ریپازیتوری گیت‌هاب زیر در توسعه و بهبود این ربات تلگرامی به عنوان یک پروژه متن باز کمک کنید \n https://github.com/h-razavi/sagapodcast-bot "
+
+
 bot.on('message',(ctx)=>{
     const chatId = process.env.CHAT_ID;
     const botCommands = "/contribute"
@@ -28,7 +31,7 @@ bot.on('message',(ctx)=>{
     }
 })
 
-// bot.command('contribute', Telegraf.reply(contMessage));
+bot.command('contribute', Telegraf.reply(contMessage));
 
 
 exports.handler = async event => {
