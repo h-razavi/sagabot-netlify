@@ -1,7 +1,6 @@
-import { data } from "../../data/data";
-
 const { Telegraf } = require("telegraf")
 require("dotenv").config();
+const {data} = require("../../data/data")
 const bot = new Telegraf(process.env.BOT_TOKEN)
 
 const {messages} = data
