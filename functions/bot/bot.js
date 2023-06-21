@@ -58,15 +58,12 @@ bot.on("message", (ctx) => {
 //setting up callback query data
 bot.on("callback_query",async (ctx)=>{
   const callbackData = ctx.callbackQuery.data;
-  let randomFact;
+
   function getRandomFact(category){
-    randomFact = facts[category][Math.floor(Math.random()*facts.category.length)]
-    return randomFact;
+    const factsCat = facts[category]
+    const randomFact = factsCat[Math.floor(Math.random()*factsCat.length)]
+    return randomFact
   }
-  // function getRandomFact(category){
-  //   const randomFact = facts.category[Math.floor(Math.random()*facts.category.length)]
-  //   return randomFact
-  // }
   switch (callbackData){
     case "greek_myths" :  await ctx.reply(getRandomFact(greek));
     break;
