@@ -37,6 +37,8 @@ bot.command("randomfacts",(ctx)=>{
   const inlineButtons = Markup.inlineKeyboard([
     [{text : "اساطیر یونان" , callback_data:"greek" }],
     [{text : "اساطیر نورس" , callback_data:"norse" }],
+    [{text : "اساطیر مصر" , callback_data:"egypt" }],
+    [{text : "اساطیر ژاپن" , callback_data:"japan" }],
   ])
   ctx.reply("برای دریافت یک دانستنی کوتاه اساطیر مورد نظرتون رو انتخاب کنید: ",inlineButtons)
 })
@@ -69,19 +71,6 @@ bot.on("callback_query",async (ctx)=>{
     await ctx.answerCbQuery();
     await ctx.reply("یه دانستنی دیگه /randomfacts");
   }
-  // if (callbackData === "greek_myths"){
-  //   const randomIndex = Math.floor(Math.random()*facts.greek.length);
-  //   const randomFact = facts.greek[randomIndex]
-  //   await ctx.reply(randomFact);
-  //   await ctx.answerCbQuery();
-  //   await ctx.reply(" یه دانستنی دیگه /randomfacts")
-  // } else if (callbackData === "norse_myths"){
-  //   const randomIndex = Math.floor(Math.random()*facts.norse.length);
-  //   const randomFact = facts.norse[randomIndex]
-  //   await ctx.reply(randomFact);
-  //   await ctx.answerCbQuery();
-  //   await ctx.reply(" یه دانستنی دیگه /randomfacts")
-  // }
 })
 
 
