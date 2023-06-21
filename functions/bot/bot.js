@@ -1,4 +1,4 @@
-const { Telegraf } = require("telegraf")
+const { Telegraf , Markup } = require("telegraf")
 require("dotenv").config();
 const data = require("../../data/data.js")
 const bot = new Telegraf(process.env.BOT_TOKEN)
@@ -14,6 +14,12 @@ bot.start(ctx => {
   }
 })
 
+bot.help((ctx) => ctx.reply(messages.help));
+
+bot.command("podlinks",(ctx)=>{
+  const inlineButtons = Markup.inlineKeyboard(data.podApps);
+  ctx.reply("اپلیکیشن مورد نظر رو انتخاب کنید" , inlineButtons)
+})
 
 bot.on('message',(ctx)=>{
     const chatId = process.env.CHAT_ID;
@@ -31,6 +37,11 @@ bot.on('message',(ctx)=>{
 })
 
 bot.command('contribute', Telegraf.reply(messages.contribute));
+
+
+// Enable graceful stop
+process.once('SIGINT', () => bot.stop('SIGINT'));
+process.once('SIGTERM', () => bot.stop('SIGTERM'));
 
 
 exports.handler = async event => {
