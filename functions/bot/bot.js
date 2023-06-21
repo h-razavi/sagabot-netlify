@@ -58,23 +58,28 @@ bot.on("message", (ctx) => {
 //setting up callback query data
 bot.on("callback_query",async (ctx)=>{
   const callbackData = ctx.callbackQuery.data;
+  let randomFact;
   function getRandomFact(category){
-    const randomFact = facts.category[Math.floor(Math.random()*facts.category.length)]
-    return randomFact
+    randomFact = facts[category][Math.floor(Math.random()*facts.category.length)]
+    return randomFact;
   }
+  // function getRandomFact(category){
+  //   const randomFact = facts.category[Math.floor(Math.random()*facts.category.length)]
+  //   return randomFact
+  // }
   switch (callbackData){
     case "greek_myths" :  await ctx.reply(getRandomFact(greek));
     break;
     case "norse_myths" : await ctx.reply(getRandomFact(norse));
     break;
   }
-  if (callbackData === "greek_myths"){
-    const randomIndex = Math.floor(Math.random()*facts.greek.length);
-    const randomFact = facts.greek[randomIndex]
-    await ctx.reply(randomFact);
-    await ctx.answerCbQuery();
-    await ctx.reply(" یه دانستنی دیگه /randomfacts")
-  }
+  // if (callbackData === "greek_myths"){
+  //   const randomIndex = Math.floor(Math.random()*facts.greek.length);
+  //   const randomFact = facts.greek[randomIndex]
+  //   await ctx.reply(randomFact);
+  //   await ctx.answerCbQuery();
+  //   await ctx.reply(" یه دانستنی دیگه /randomfacts")
+  // }
 })
 
 
