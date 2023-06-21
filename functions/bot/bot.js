@@ -35,8 +35,8 @@ bot.command("podlinks", (ctx) => {
 //setting up facts command
 bot.command("randomfacts",(ctx)=>{
   const inlineButtons = Markup.inlineKeyboard([
-    [{text : "اساطیر یونان" , callback_data:"greek_myths" }],
-    [{text : "اساطیر نورس" , callback_data:"norse_myths" }],
+    [{text : "اساطیر یونان" , callback_data:"greek" }],
+    [{text : "اساطیر نورس" , callback_data:"norse" }],
   ])
   ctx.reply("برای دریافت یک دانستنی کوتاه اساطیر مورد نظرتون رو انتخاب کنید: ",inlineButtons)
 })
@@ -58,19 +58,30 @@ bot.on("message", (ctx) => {
 //setting up callback query data
 bot.on("callback_query",async (ctx)=>{
   const callbackData = ctx.callbackQuery.data;
-  if (callbackData === "greek_myths"){
-    const randomIndex = Math.floor(Math.random()*facts.greek.length);
-    const randomFact = facts.greek[randomIndex]
-    await ctx.reply(randomFact);
-    await ctx.answerCbQuery();
-    await ctx.reply(" یه دانستنی دیگه /randomfacts")
-  } else if (callbackData === "norse_myths"){
-    const randomIndex = Math.floor(Math.random()*facts.norse.length);
-    const randomFact = facts.norse[randomIndex]
-    await ctx.reply(randomFact);
-    await ctx.answerCbQuery();
-    await ctx.reply(" یه دانستنی دیگه /randomfacts")
+  let randomFact;
+  if (Object.keys(facts).includes(callbackData)){
+    const factList = facts[callbackData];
+    const randomIndex = Math.floor(Math.random() * factList.length);
+    randomFact = factList[randomIndex];
   }
+  if(randomFact){
+    await ctx.reply(randomFact);
+    await ctx.answerCbQuery();
+    await ctx.reply("یه دانستنی دیگه /randomfacts");
+  }
+  // if (callbackData === "greek_myths"){
+  //   const randomIndex = Math.floor(Math.random()*facts.greek.length);
+  //   const randomFact = facts.greek[randomIndex]
+  //   await ctx.reply(randomFact);
+  //   await ctx.answerCbQuery();
+  //   await ctx.reply(" یه دانستنی دیگه /randomfacts")
+  // } else if (callbackData === "norse_myths"){
+  //   const randomIndex = Math.floor(Math.random()*facts.norse.length);
+  //   const randomFact = facts.norse[randomIndex]
+  //   await ctx.reply(randomFact);
+  //   await ctx.answerCbQuery();
+  //   await ctx.reply(" یه دانستنی دیگه /randomfacts")
+  // }
 })
 
 
