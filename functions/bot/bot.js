@@ -1,55 +1,85 @@
-const { Telegraf , Markup } = require("telegraf")
+//setting up the environment
+const { Telegraf, Markup } = require("telegraf");
 require("dotenv").config();
-const data = require("../../data/data.js")
-const bot = new Telegraf(process.env.BOT_TOKEN)
+const data = require("../../data/data.js");
+const bot = new Telegraf(process.env.BOT_TOKEN);
 
+
+//extracting messages data
 const messages = data.messages;
+const facts = data.facts
 
-bot.start(ctx => {
+//initializing the bot
+bot.start((ctx) => {
   try {
-    return ctx.reply(messages.start)
+    return ctx.reply(messages.start);
   } catch (e) {
-    console.error("error in start action:", e)
-    return ctx.reply("Error occured")
+    console.error("error in start action:", e);
+    return ctx.reply("Error occured");
+  }
+});
+
+//setting up help command
+bot.help((ctx) => ctx.reply(messages.help));
+
+//setting up contribute command
+bot.command("contribute", Telegraf.reply(messages.contribute));
+
+
+//setting up podlinks command with inline buttons
+bot.command("podlinks", (ctx) => {
+  const inlineButtons = Markup.inlineKeyboard(data.podApps);
+  ctx.reply("اپلیکیشن مورد نظر رو انتخاب کنید", inlineButtons);
+});
+
+//setting up facts command
+bot.command("randomfacts",(ctx)=>{
+  const inlineButtons = Markup.inlineKeyboard([
+    [{text : "اساطیر یونان" , callback_data:"greek_myths" }]
+  ])
+  ctx.reply("برای دریافت یک دانستنی کوتاه اساطیر مورد نظرتون رو انتخاب کنید: ",inlineButtons)
+})
+
+
+//setting up message forwarding behaviour
+bot.on("message", (ctx) => {
+  const chatId = process.env.CHAT_ID;
+  if (ctx.message.text || ctx.message.voice) {
+    return ctx.telegram
+      .forwardMessage(chatId, ctx.chat.id, ctx.message.message_id)
+      .then(() => ctx.reply("✅ پیام شما با موفقیت دریافت شد! "));
+  } else {
+    return ctx.reply(messages.notext);
+  }
+});
+
+
+//setting up callback query data
+bot.on("callback_query",async (ctx)=>{
+  const callbackData = ctx.callbackQuery.data;
+  if (callbackData === "greek_myths"){
+    const randomIndex = Math.floor(Math.random()*facts.greek.length);
+    const randomFact = facts.greek[randomIndex]
+    await ctx.reply(randomFact);
+    await ctx.answerCbQuery();
   }
 })
 
-bot.help((ctx) => ctx.reply(messages.help));
-
-bot.command("podlinks",(ctx)=>{
-  const inlineButtons = Markup.inlineKeyboard(data.podApps);
-  ctx.reply("اپلیکیشن مورد نظر رو انتخاب کنید" , inlineButtons)
-})
-
-bot.on('message',(ctx)=>{
-    const chatId = process.env.CHAT_ID;
-    const botCommands = "/contribute"
-
-    if(ctx.message.text===botCommands){
-      return ctx.reply(messages.contribute)
-    }
-
-    if(ctx.message.text||ctx.message.voice){
-        return ctx.telegram.forwardMessage(chatId,ctx.chat.id,ctx.message.message_id)
-    } else {
-       return ctx.reply(messages.notext)
-    }
-})
-
-bot.command('contribute', Telegraf.reply(messages.contribute));
 
 
 // Enable graceful stop
-process.once('SIGINT', () => bot.stop('SIGINT'));
-process.once('SIGTERM', () => bot.stop('SIGTERM'));
+process.once("SIGINT", () => bot.stop("SIGINT"));
+process.once("SIGTERM", () => bot.stop("SIGTERM"));
 
-
-exports.handler = async event => {
+exports.handler = async (event) => {
   try {
-    await bot.handleUpdate(JSON.parse(event.body))
-    return { statusCode: 200, body: "" }
+    await bot.handleUpdate(JSON.parse(event.body));
+    return { statusCode: 200, body: "" };
   } catch (e) {
-    console.error("error in handler:", e)
-    return { statusCode: 400, body: "This endpoint is meant for bot and telegram communication" }
+    console.error("error in handler:", e);
+    return {
+      statusCode: 400,
+      body: "This endpoint is meant for bot and telegram communication",
+    };
   }
-}
+};
