@@ -62,6 +62,7 @@ bot.on("callback_query",async (ctx)=>{
     const randomFact = facts.greek[randomIndex]
     await ctx.reply(randomFact);
     await ctx.answerCbQuery();
+    await ctx.reply(" یه دانستنی دیگه /randomfacts")
   }
 })
 
