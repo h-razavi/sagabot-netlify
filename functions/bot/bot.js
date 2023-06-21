@@ -64,7 +64,7 @@ bot.on("callback_query",async (ctx)=>{
     await ctx.reply(randomFact);
     await ctx.answerCbQuery();
     await ctx.reply(" یه دانستنی دیگه /randomfacts")
-  } else if (callbackData === "greek_myths"){
+  } else if (callbackData === "norse_myths"){
     const randomIndex = Math.floor(Math.random()*facts.norse.length);
     const randomFact = facts.norse[randomIndex]
     await ctx.reply(randomFact);
