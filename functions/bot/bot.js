@@ -35,7 +35,8 @@ bot.command("podlinks", (ctx) => {
 //setting up facts command
 bot.command("randomfacts",(ctx)=>{
   const inlineButtons = Markup.inlineKeyboard([
-    [{text : "اساطیر یونان" , callback_data:"greek_myths" }]
+    [{text : "اساطیر یونان" , callback_data:"greek_myths" }],
+    [{text : "اساطیر نورس" , callback_data:"norse_myths" }],
   ])
   ctx.reply("برای دریافت یک دانستنی کوتاه اساطیر مورد نظرتون رو انتخاب کنید: ",inlineButtons)
 })
@@ -57,6 +58,16 @@ bot.on("message", (ctx) => {
 //setting up callback query data
 bot.on("callback_query",async (ctx)=>{
   const callbackData = ctx.callbackQuery.data;
+  function getRandomFact(category){
+    const randomFact = facts.category[Math.floor(Math.random()*facts.category.length)]
+    return randomFact
+  }
+  switch (callbackData){
+    case "greek_myths" :  await ctx.reply(getRandomFact(greek));
+    break;
+    case "norse_myths" : await ctx.reply(getRandomFact(norse));
+    break;
+  }
   if (callbackData === "greek_myths"){
     const randomIndex = Math.floor(Math.random()*facts.greek.length);
     const randomFact = facts.greek[randomIndex]
