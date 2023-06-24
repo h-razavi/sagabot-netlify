@@ -74,6 +74,24 @@ bot.on("callback_query",async (ctx)=>{
 })
 
 
+//sending music
+bot.command("sagamusic" , (ctx)=>{
+  ctx.reply("اپیزود مورد نظر رو انتخاب کنید:",
+  Markup.inlineKeyboard([
+    Markup.button.callback("اپیزود 1","ep1")
+  ])
+  )
+})
+
+function sendTrack(ctx){
+  ctx.replyWithAudio({ source: `https://drive.google.com/file/d/1FBPCeYdRkAhu_A0srP9ZzUmjxx8lAMj3` });
+}
+
+bot.action("ep1",(ctx)=>{
+  sendTrack(ctx);
+  ctx.answerCbQuery();
+})
+
 
 // Enable graceful stop
 process.once("SIGINT", () => bot.stop("SIGINT"));
