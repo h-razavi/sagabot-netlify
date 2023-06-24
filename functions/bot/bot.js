@@ -2,13 +2,11 @@
 const { Telegraf, Markup } = require("telegraf");
 require("dotenv").config();
 const data = require("../../data/data.js");
-const { inlineKeyboard } = require("telegraf/typings/markup.js");
 const bot = new Telegraf(process.env.BOT_TOKEN);
-
 
 //extracting messages data
 const messages = data.messages;
-const facts = data.facts
+const facts = data.facts;
 
 //initializing the bot
 bot.start((ctx) => {
@@ -26,7 +24,6 @@ bot.help((ctx) => ctx.reply(messages.help));
 //setting up contribute command
 bot.command("contribute", Telegraf.reply(messages.contribute));
 
-
 //setting up podlinks command with inline buttons
 bot.command("podlinks", (ctx) => {
   const inlineButtons = Markup.inlineKeyboard(data.podApps);
@@ -34,16 +31,18 @@ bot.command("podlinks", (ctx) => {
 });
 
 //setting up facts command
-bot.command("randomfacts",(ctx)=>{
+bot.command("randomfacts", (ctx) => {
   const inlineButtons = Markup.inlineKeyboard([
-    [{text : "اساطیر یونان" , callback_data:"greek" }],
-    [{text : "اساطیر نورس" , callback_data:"norse" }],
-    [{text : "اساطیر مصر" , callback_data:"egypt" }],
-    [{text : "اساطیر ژاپن" , callback_data:"japan" }],
-  ])
-  ctx.reply("برای دریافت یک دانستنی کوتاه اساطیر مورد نظرتون رو انتخاب کنید: ",inlineButtons)
-})
-
+    [{ text: "اساطیر یونان", callback_data: "greek" }],
+    [{ text: "اساطیر نورس", callback_data: "norse" }],
+    [{ text: "اساطیر مصر", callback_data: "egypt" }],
+    [{ text: "اساطیر ژاپن", callback_data: "japan" }],
+  ]);
+  ctx.reply(
+    "برای دریافت یک دانستنی کوتاه اساطیر مورد نظرتون رو انتخاب کنید: ",
+    inlineButtons
+  );
+});
 
 //setting up message forwarding behaviour
 bot.on("message", (ctx) => {
@@ -57,25 +56,23 @@ bot.on("message", (ctx) => {
   }
 });
 
-
 //setting up callback query data
-bot.on("callback_query",async (ctx)=>{
+bot.on("callback_query", async (ctx) => {
   const callbackData = ctx.callbackQuery.data;
   let randomFact;
-  if (Object.keys(facts).includes(callbackData)){
+  if (Object.keys(facts).includes(callbackData)) {
     const factList = facts[callbackData];
     const randomIndex = Math.floor(Math.random() * factList.length);
     randomFact = factList[randomIndex];
   }
-  if(randomFact){
+  if (randomFact) {
     await ctx.reply(randomFact);
     await ctx.answerCbQuery();
     await ctx.reply("یه دانستنی دیگه /randomfacts");
   }
-})
+});
 
-
-
+bot.command("sagamusic",(ctx)=>ctx.reply("command active"))
 
 // Enable graceful stop
 process.once("SIGINT", () => bot.stop("SIGINT"));
