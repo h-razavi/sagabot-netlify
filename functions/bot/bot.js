@@ -39,9 +39,7 @@ bot.command("sagamusic", (ctx) => {
 });
 
 bot.action("ep1", (ctx) => {
-  ctx.replyWithAudio({
-    url: "https://drive.google.com/file/d/1FBPCeYdRkAhu_A0srP9ZzUmjxx8lAMj3",
-  });
+  ctx.telegram.forwardMessage(ctx.chat.id,"forwarded music")
   ctx.answerCbQuery();
 });
 
