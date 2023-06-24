@@ -76,16 +76,10 @@ bot.on("callback_query",async (ctx)=>{
 
 
 bot.command("sagamusic", (ctx)=>{
-  const inlineButtons = Markup.inlineKeyboard([
-    [{text : "ep1" , callback_data:"ep1" }]
-  ])
-  ctx.reply("choose an episode:",inlineButtons)
+  ctx.reply("choose an episode:")
 })
 
-bot.action('ep1', (ctx) => {
-  ctx.replyWithAudio({ url: `https://drive.google.com/file/d/1FBPCeYdRkAhu_A0srP9ZzUmjxx8lAMj3` });
-  ctx.answerCbQuery();
-});
+
 
 
 // Enable graceful stop
