@@ -76,9 +76,10 @@ bot.on("callback_query",async (ctx)=>{
 
 
 bot.command("sagamusic", (ctx)=>{
-  ctx.reply("choose an episode:",Markup.inlineKeyboard([
-    Markup.button.callback('episode 1', 'ep1')
-  ]))
+  const inlineButtons = Markup.inlineKeyboard([
+    [{text : "ep1" , callback_data:"ep1" }]
+  ])
+  ctx.reply("choose an episode:",inlineButtons)
 })
 
 bot.action('ep1', (ctx) => {
