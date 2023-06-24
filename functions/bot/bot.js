@@ -2,6 +2,7 @@
 const { Telegraf, Markup } = require("telegraf");
 require("dotenv").config();
 const data = require("../../data/data.js");
+const { inlineKeyboard } = require("telegraf/typings/markup.js");
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
 
@@ -74,7 +75,16 @@ bot.on("callback_query",async (ctx)=>{
 })
 
 
-bot.command("sagamusic", Telegraf.reply("command is active"))
+bot.command("sagamusic", (ctx)=>{
+  ctx.reply("choose an episode:",Markup.inlineKeyboard([
+    Markup.button.callback('episode 1', 'ep1')
+  ]))
+})
+
+bot.action('ep1', (ctx) => {
+  ctx.replyWithAudio({ url: `https://drive.google.com/file/d/1FBPCeYdRkAhu_A0srP9ZzUmjxx8lAMj3` });
+  ctx.answerCbQuery();
+});
 
 
 // Enable graceful stop
