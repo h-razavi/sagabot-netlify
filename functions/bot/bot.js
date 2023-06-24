@@ -24,11 +24,14 @@ bot.help((ctx) => ctx.reply(messages.help));
 //setting up contribute command
 bot.command("contribute", Telegraf.reply(messages.contribute));
 
+
 //setting up podlinks command with inline buttons
 bot.command("podlinks", (ctx) => {
   const inlineButtons = Markup.inlineKeyboard(data.podApps);
   ctx.reply("اپلیکیشن مورد نظر رو انتخاب کنید", inlineButtons);
 });
+
+bot.command("sagamusic", Telegraf.reply("command active"));
 
 //setting up facts command
 bot.command("randomfacts", (ctx) => {
@@ -72,7 +75,6 @@ bot.on("callback_query", async (ctx) => {
   }
 });
 
-bot.command("sagamusic",(ctx)=>ctx.reply("command active"))
 
 // Enable graceful stop
 process.once("SIGINT", () => bot.stop("SIGINT"));
