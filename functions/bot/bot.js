@@ -75,11 +75,6 @@ bot.on("callback_query",async (ctx)=>{
 })
 
 
-bot.command("sagamusic", (ctx)=>{
-  ctx.reply("choose an episode:")
-})
-
-
 
 
 // Enable graceful stop
