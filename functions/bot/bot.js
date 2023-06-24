@@ -76,11 +76,10 @@ bot.on("callback_query",async (ctx)=>{
 
 //sending music
 bot.command("sagamusic" , (ctx)=>{
-  ctx.reply("اپیزود مورد نظر رو انتخاب کنید:",
-  Markup.inlineKeyboard([
-    Markup.button.callback("اپیزود 1","ep1")
+  const inlineButtons = Markup.inlineKeyboard([
+    [{text : "اپیزود 1" , callback_data:"ep1" }],
   ])
-  )
+  ctx.reply("اپیزود مورد نظر رو انتخاب کنید:",inlineButtons )
 })
 
 function sendTrack(ctx){
