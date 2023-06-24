@@ -79,11 +79,8 @@ bot.on("callback_query",async (ctx)=>{
 
 
 //sending music
-bot.command("sagamusic",(ctx)=>{
-  const inlineButtons = Markup.inlineKeyboard([
-    [{text : "اپیزود 1" , callback_data:"ep1" }],
-  ])
-  ctx.reply("اپیزود را انتخاب کنید: ",inlineButtons)
+bot.command("sagamuisc",(ctx)=>{
+  ctx.replyWithAudio({ source: `https://drive.google.com/file/d/1FBPCeYdRkAhu_A0srP9ZzUmjxx8lAMj3` })
 })
 
 
