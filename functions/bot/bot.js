@@ -66,10 +66,6 @@ bot.on("callback_query",async (ctx)=>{
     const randomIndex = Math.floor(Math.random() * factList.length);
     randomFact = factList[randomIndex];
   }
-  if(callbackData==="ep1"){
-    await ctx.replyWithAudio({ source: `https://drive.google.com/file/d/1FBPCeYdRkAhu_A0srP9ZzUmjxx8lAMj3` })
-    await ctx.answerCbQuery();
-  }
   if(randomFact){
     await ctx.reply(randomFact);
     await ctx.answerCbQuery();
@@ -78,20 +74,7 @@ bot.on("callback_query",async (ctx)=>{
 })
 
 
-//sending music
-bot.command("sagamuisc",(ctx)=>{
-  ctx.replyWithAudio({ source: `https://drive.google.com/file/d/1FBPCeYdRkAhu_A0srP9ZzUmjxx8lAMj3` })
-})
-
-
-// function sendTrack(ctx){
-//   ctx.replyWithAudio({ source: `https://drive.google.com/file/d/1FBPCeYdRkAhu_A0srP9ZzUmjxx8lAMj3` });
-// }
-
-// bot.action("ep1",(ctx)=>{
-//   sendTrack(ctx);
-//   ctx.answerCbQuery();
-// })
+bot.command("sagamusic", Telegraf.reply("command is active"))
 
 
 // Enable graceful stop
