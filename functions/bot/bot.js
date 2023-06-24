@@ -66,6 +66,10 @@ bot.on("callback_query",async (ctx)=>{
     const randomIndex = Math.floor(Math.random() * factList.length);
     randomFact = factList[randomIndex];
   }
+  if(callbackData==="ep1"){
+    ctx.reply("اپیزود مورد نظر رو انتخاب کنید:",inlineButtons )
+    ctx.replyWithAudio({ source: `https://drive.google.com/file/d/1FBPCeYdRkAhu_A0srP9ZzUmjxx8lAMj3` })
+  }
   if(randomFact){
     await ctx.reply(randomFact);
     await ctx.answerCbQuery();
@@ -82,14 +86,14 @@ bot.command("sagamusic" , (ctx)=>{
   ctx.reply("اپیزود مورد نظر رو انتخاب کنید:",inlineButtons )
 })
 
-function sendTrack(ctx){
-  ctx.replyWithAudio({ source: `https://drive.google.com/file/d/1FBPCeYdRkAhu_A0srP9ZzUmjxx8lAMj3` });
-}
+// function sendTrack(ctx){
+//   ctx.replyWithAudio({ source: `https://drive.google.com/file/d/1FBPCeYdRkAhu_A0srP9ZzUmjxx8lAMj3` });
+// }
 
-bot.action("ep1",(ctx)=>{
-  sendTrack(ctx);
-  ctx.answerCbQuery();
-})
+// bot.action("ep1",(ctx)=>{
+//   sendTrack(ctx);
+//   ctx.answerCbQuery();
+// })
 
 
 // Enable graceful stop
