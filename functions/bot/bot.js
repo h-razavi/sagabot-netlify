@@ -79,7 +79,7 @@ bot.on("callback_query",async (ctx)=>{
 
 
 //sending music
-bot.command("randomfacts",(ctx)=>{
+bot.command("sagamusic",(ctx)=>{
   const inlineButtons = Markup.inlineKeyboard([
     [{text : "اپیزود 1" , callback_data:"ep1" }],
   ])
