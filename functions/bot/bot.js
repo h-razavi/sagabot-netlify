@@ -39,7 +39,7 @@ bot.command("sagamusic", (ctx) => {
 });
 
 bot.action("ep1", (ctx) => {
-  ctx.telegram.forwardMessage(ctx.chat.id,"forwarded music")
+  ctx.reply("https://t.me/c/1964922321/2")
   ctx.answerCbQuery();
 });
 
