@@ -35,21 +35,16 @@ bot.command("podlinks", (ctx) => {
 bot.command("sagamusic", (ctx) => {
   const inlineButtons = Markup.inlineKeyboard(music.buttons);
   ctx.reply(
-    "برای شنیدن موزیکهای استفاده شده در هر پادکست، اپیزود مورد نظرتون رو انتخاب کنید",
+    "برای شنیدن موزیکهای استفاده شده در پادکست، اپیزود مورد نظرتون رو انتخاب کنید",
     inlineButtons
   );
-
-  // const fileId = "CQACAgQAAxkBAAEi4Spkl_0Q86_3_tPwx1CjUz_paOVl6wACWBEAAunMwVCsxsJ-sJoB4S8E"
-  // ctx.reply("music is sended below")
-  // ctx.replyWithAudio(fileId)
 });
 
 music.tracks.forEach(track=>{
   bot.action(track.episode, (ctx)=>{
       const files = track.id;
-      files.forEach(file=>{
-        ctx.replyWithAudio(file);
-      })
+      const mediaFiles = files.map(file => ({ type: 'audio', media: file }));
+      ctx.replyWithMediaGroup(mediaFiles)
       ctx.answerCbQuery();
   })
 })
