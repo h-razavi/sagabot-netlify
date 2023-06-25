@@ -71,7 +71,15 @@ const data = {
   },
   music : {
     fileIds : [
-      {episode : "opening" , id: "CQACAgQAAxkBAAEi4Spkl_0Q86_3_tPwx1CjUz_paOVl6wACWBEAAunMwVCsxsJ-sJoB4S8E"}
+      {episode : "opening" , id: "CQACAgQAAxkBAAEi4Spkl_0Q86_3_tPwx1CjUz_paOVl6wACWBEAAunMwVCsxsJ-sJoB4S8E"},
+      {episode : "ep37" , id: "CQACAgQAAxkBAAEi4iZkmBcxbXBubyJH_WLauFQeyoG7tAACoBEAAunMwVDwjx79pVKBjC8E"},
+      {episode : "ep37" , id: "CQACAgQAAxkBAAEi4ihkmBdVIK92KMQkXePpP1spiWXSnwACoREAAunMwVDgT60nkbxWcC8E"},
+      {episode : "ep37" , id: "CQACAgQAAxkBAAEi4i5kmBd2vo5A5vputOKaSn1J6CTl5AACohEAAunMwVBUF8v6RAo2XC8E"},
+
+    ],
+    buttons : [
+      [{ text: "موزیک آغازین", callback_data: "opening" }],
+      [{ text: "اپیزود 37", callback_data: "ep37" }],
     ]
   }
 };

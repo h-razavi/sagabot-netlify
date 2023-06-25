@@ -33,10 +33,8 @@ bot.command("podlinks", (ctx) => {
 
 //send music
 bot.command("sagamusic", (ctx) => {
-  const inlineButtons = Markup.inlineKeyboard([
-    [{ text: "موزیک آغازین", callback_data: "opening" }],
-  ]);
-  ctx.reply("choose episode", inlineButtons);
+  const inlineButtons = Markup.inlineKeyboard(music.buttons);
+  ctx.reply("برای شنیدن موزیکهای استفاده شده در هر پادکست، اپیزود مورد نظرتون رو انتخاب کنید", inlineButtons);
 
   // const fileId = "CQACAgQAAxkBAAEi4Spkl_0Q86_3_tPwx1CjUz_paOVl6wACWBEAAunMwVCsxsJ-sJoB4S8E"
   // ctx.reply("music is sended below")
@@ -83,12 +81,21 @@ bot.on("callback_query", async (ctx) => {
     await ctx.answerCbQuery();
     await ctx.reply("یه دانستنی دیگه /randomfacts");
   }
-  if (callbackData === music.fileIds[0].episode) {
-    const fileId = music.fileIds[0].id
-    await ctx.reply("موزیک مربوط به موزیک آغازین");
-    await ctx.replyWithAudio(fileId);
-    await ctx.answerCbQuery();
-  }
+
+  music.fileIds.forEach((fileId)=>{ 
+    if(callbackData===fileId.episode){
+      const file = fileId.id
+       ctx.reply("ساگا موزیک ارسال میکند");
+       ctx.replyWithAudio(file);
+       ctx.answerCbQuery();
+    }
+  })
+  // if (callbackData === music.fileIds[0].episode) {
+  //   const fileId = music.fileIds[0].id
+  //   await ctx.reply("موزیک مربوط به موزیک آغازین");
+  //   await ctx.replyWithAudio(fileId);
+  //   await ctx.answerCbQuery();
+  // }
 });
 
 // Enable graceful stop
