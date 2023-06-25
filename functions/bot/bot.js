@@ -36,13 +36,11 @@ bot.command("sagamusic", (ctx) => {
     [{ text: "episode 1", callback_data: "ep1" }],
   ]);
   ctx.reply("choose episode", inlineButtons);
-  const fileId = "AAMCBAADGQEAAdVdB2SX_rSvwrp8Gfxv15HcYeudGGuoAAJYEQAC6czBUPpELFmb46UiAQAHbQADLwQ"
-  ctx.telegram.sendAudio(ctx.chat.id,fileId)
 });
 
 bot.action("ep1", (ctx) => {
   const fileId = "AAMCBAADGQEAAdVdB2SX_rSvwrp8Gfxv15HcYeudGGuoAAJYEQAC6czBUPpELFmb46UiAQAHbQADLwQ"
-  ctx.telegram.sendAudio(ctx.chat.id,fileId)
+  ctx.replyWithAudio(fileId,{title : "First"})
   ctx.answerCbQuery();
 });
 
