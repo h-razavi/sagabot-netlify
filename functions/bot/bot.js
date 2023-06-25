@@ -40,7 +40,7 @@ bot.command("sagamusic", (ctx) => {
   // ctx.replyWithAudio(fileId,{title : "First"})
   const fileId = "AAMCBAADGQEAAdVdB2SX_rSvwrp8Gfxv15HcYeudGGuoAAJYEQAC6czBUPpELFmb46UiAQAHbQADLwQ"
   ctx.reply("music is sended below")
-  ctx.replyWithAudio(fileId,{title : "First"})
+  ctx.replyWithAudio(fileId)
 });
 
 // bot.action("ep1", (ctx) => {
