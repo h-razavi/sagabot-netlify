@@ -39,8 +39,8 @@ bot.command("sagamusic", (ctx) => {
 });
 
 bot.action("ep1", (ctx) => {
-  const channelId = "1964922321"
-  ctx.telegram.forwardMessage(channelId,ctx.chat.id,2)
+  const fileId = "AAMCBAADGQEAAdVdB2SX_rSvwrp8Gfxv15HcYeudGGuoAAJYEQAC6czBUPpELFmb46UiAQAHbQADLwQ"
+  ctx.telegram.sendAudio(ctx.chat.id,fileId)
   ctx.answerCbQuery();
 });
 
