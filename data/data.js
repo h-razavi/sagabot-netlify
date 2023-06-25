@@ -117,11 +117,28 @@ const data = {
           "CQACAgQAAxkBAAEi4ylkmDgHdLyLHvAzi5DdCp478saWSQACyREAAunMwVBCqX4uiJZa4i8E",
         ],
       },
+      {
+        episode: "ep35",
+        id: [
+          "CQACAgQAAxkBAAEi40FkmDmg-zilCwbWhUtkQ1MODudBxAACyxEAAunMwVDkwPlWQ63m0y8E",
+        ],
+      },
+      {
+        episode: "ep34",
+        id: [
+          "CQACAgQAAxkBAAEi40RkmDot3c-3E6D2-Rf3M5uDGlGC_AACzBEAAunMwVBxYahl0ewokC8E",
+          "CQACAgQAAxkBAAEi40ZkmDpLeoSpNwwM8hCceAvkbQdKhAACzREAAunMwVDUf0rTSuCCvy8E",
+          "CQACAgQAAxkBAAEi40hkmDpxsqrcMq92MEN3CY2S1KPrgwACzhEAAunMwVD2NRcOMdar5C8E",
+          "CQACAgQAAxkBAAEi40pkmDqILJAGhxzM_uGveOflvjhj_wACzxEAAunMwVAydDtuoFKyiy8E",
+        ],
+      },
     ],
     buttons: [
       [{ text: "موزیک آغازین", callback_data: "opening" }],
       [{ text: "اپیزود 37", callback_data: "ep37" }],
       [{ text: "اپیزود 36", callback_data: "ep36" }],
+      [{ text: "اپیزود 35", callback_data: "ep35" }],
+      [{ text: "اپیزود 34", callback_data: "ep34" }],
     ],
   },
 };
