@@ -1,5 +1,5 @@
 //setting up the environment
-const { Telegraf , Markup } = require('telegraf')
+const { Telegraf, Markup } = require("telegraf");
 require("dotenv").config();
 const data = require("../../data/data.js");
 const bot = new Telegraf(process.env.BOT_TOKEN);
@@ -32,22 +32,15 @@ bot.command("podlinks", (ctx) => {
 
 //send music
 bot.command("sagamusic", (ctx) => {
-  // const inlineButtons = Markup.inlineKeyboard([
-  //   [{ text: "episode 1", callback_data: "ep1" }],
-  // ]);
-  // ctx.reply("choose episode", inlineButtons);
-  // const fileId = "AAMCBAADGQEAAdVdB2SX_rSvwrp8Gfxv15HcYeudGGuoAAJYEQAC6czBUPpELFmb46UiAQAHbQADLwQ"
-  // ctx.replyWithAudio(fileId,{title : "First"})
-  const fileId = "CQACAgQAAxkBAAEi4Spkl_0Q86_3_tPwx1CjUz_paOVl6wACWBEAAunMwVCsxsJ-sJoB4S8E"
-  ctx.reply("music is sended below")
-  ctx.replyWithAudio(fileId)
-});
+  const inlineButtons = Markup.inlineKeyboard([
+    [{ text: "موزیک آغازین", callback_data: "opening" }],
+  ]);
+  ctx.reply("choose episode", inlineButtons);
 
-// bot.action("ep1", (ctx) => {
-//   const fileId = "AAMCBAADGQEAAdVdB2SX_rSvwrp8Gfxv15HcYeudGGuoAAJYEQAC6czBUPpELFmb46UiAQAHbQADLwQ"
-//   ctx.replyWithAudio(fileId,{title : "First"})
-//   ctx.answerCbQuery();
-// });
+  // const fileId = "CQACAgQAAxkBAAEi4Spkl_0Q86_3_tPwx1CjUz_paOVl6wACWBEAAunMwVCsxsJ-sJoB4S8E"
+  // ctx.reply("music is sended below")
+  // ctx.replyWithAudio(fileId)
+});
 
 //setting up facts command
 bot.command("randomfacts", (ctx) => {
@@ -88,6 +81,12 @@ bot.on("callback_query", async (ctx) => {
     await ctx.reply(randomFact);
     await ctx.answerCbQuery();
     await ctx.reply("یه دانستنی دیگه /randomfacts");
+  }
+  if (callbackData === "opening") {
+    const fileId =
+      "CQACAgQAAxkBAAEi4Spkl_0Q86_3_tPwx1CjUz_paOVl6wACWBEAAunMwVCsxsJ-sJoB4S8E";
+    ctx.reply("موزیک مربوط به موزیک آغازین");
+    ctx.replyWithAudio(fileId);
   }
 });
 
