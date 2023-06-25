@@ -40,7 +40,7 @@ bot.command("sagamusic", (ctx) => {
 
 bot.action("ep1", (ctx) => {
   const channelId = "1964922321"
-  ctx.forwardMessage(channelId,ctx.chat.id,2)
+  ctx.telegram.forwardMessage(channelId,ctx.chat.id,2)
   ctx.answerCbQuery();
 });
 
