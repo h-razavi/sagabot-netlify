@@ -44,7 +44,7 @@ bot.command("sagamusic", (ctx) => {
   // ctx.replyWithAudio(fileId)
 });
 
-music.fileIds.map(fileId=>{
+music.fileIds.forEach(fileId=>{
   bot.action(fileId.episode, (ctx)=>{
       const file = fileId.id;
       ctx.replyWithAudio(file);
