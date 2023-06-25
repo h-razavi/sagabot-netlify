@@ -44,10 +44,12 @@ bot.command("sagamusic", (ctx) => {
   // ctx.replyWithAudio(fileId)
 });
 
-music.fileIds.forEach(fileId=>{
-  bot.action(fileId.episode, (ctx)=>{
-      const file = fileId.id;
-      ctx.replyWithAudio(file);
+music.tracks.forEach(track=>{
+  bot.action(track.episode, (ctx)=>{
+      const files = track.id;
+      files.forEach(file=>{
+        ctx.replyWithAudio(file);
+      })
       ctx.answerCbQuery();
   })
 })
