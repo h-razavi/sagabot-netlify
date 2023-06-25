@@ -109,10 +109,19 @@ const data = {
           "CQACAgQAAxkBAAEi4i5kmBd2vo5A5vputOKaSn1J6CTl5AACohEAAunMwVBUF8v6RAo2XC8E",
         ],
       },
+      {
+        episode: "ep36",
+        id: [
+          "CQACAgQAAxkBAAEi4x5kmDe8Z0JfpIXuTVevR8y7gLzrDwACxxEAAunMwVBA7klIWpAJEi8E",
+          "CQACAgQAAxkBAAEi4yFkmDfnG9xlh8246EnikQx-5pVx8wACyBEAAunMwVAByopVP017Vy8E",
+          "CQACAgQAAxkBAAEi4ylkmDgHdLyLHvAzi5DdCp478saWSQACyREAAunMwVBCqX4uiJZa4i8E",
+        ],
+      },
     ],
     buttons: [
       [{ text: "موزیک آغازین", callback_data: "opening" }],
       [{ text: "اپیزود 37", callback_data: "ep37" }],
+      [{ text: "اپیزود 36", callback_data: "ep36" }],
     ],
   },
 };
