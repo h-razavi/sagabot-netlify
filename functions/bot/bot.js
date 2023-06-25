@@ -38,7 +38,7 @@ bot.command("sagamusic", (ctx) => {
   // ctx.reply("choose episode", inlineButtons);
   // const fileId = "AAMCBAADGQEAAdVdB2SX_rSvwrp8Gfxv15HcYeudGGuoAAJYEQAC6czBUPpELFmb46UiAQAHbQADLwQ"
   // ctx.replyWithAudio(fileId,{title : "First"})
-  const fileId = "AAMCBAADGQEAAdVdB2SX_rSvwrp8Gfxv15HcYeudGGuoAAJYEQAC6czBUPpELFmb46UiAQAHbQADLwQ"
+  const fileId = "AgADWBEAAunMwVA"
   ctx.reply("music is sended below")
   ctx.replyWithAudio(fileId)
 });
