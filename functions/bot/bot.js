@@ -85,8 +85,9 @@ bot.on("callback_query", async (ctx) => {
   if (callbackData === "opening") {
     const fileId =
       "CQACAgQAAxkBAAEi4Spkl_0Q86_3_tPwx1CjUz_paOVl6wACWBEAAunMwVCsxsJ-sJoB4S8E";
-    ctx.reply("موزیک مربوط به موزیک آغازین");
-    ctx.replyWithAudio(fileId);
+    await ctx.reply("موزیک مربوط به موزیک آغازین");
+    await ctx.replyWithAudio(fileId);
+    await ctx.answerCbQuery();
   }
 });
 
