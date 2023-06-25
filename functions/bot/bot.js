@@ -34,7 +34,10 @@ bot.command("podlinks", (ctx) => {
 //send music
 bot.command("sagamusic", (ctx) => {
   const inlineButtons = Markup.inlineKeyboard(music.buttons);
-  ctx.reply("برای شنیدن موزیکهای استفاده شده در هر پادکست، اپیزود مورد نظرتون رو انتخاب کنید", inlineButtons);
+  ctx.reply(
+    "برای شنیدن موزیکهای استفاده شده در هر پادکست، اپیزود مورد نظرتون رو انتخاب کنید",
+    inlineButtons
+  );
 
   // const fileId = "CQACAgQAAxkBAAEi4Spkl_0Q86_3_tPwx1CjUz_paOVl6wACWBEAAunMwVCsxsJ-sJoB4S8E"
   // ctx.reply("music is sended below")
@@ -82,14 +85,15 @@ bot.on("callback_query", async (ctx) => {
     await ctx.reply("یه دانستنی دیگه /randomfacts");
   }
 
-  music.fileIds.forEach((fileId)=>{ 
-    if(callbackData===fileId.episode){
-      const file = fileId.id
-       ctx.reply("ساگا موزیک ارسال میکند");
-       ctx.replyWithAudio(file);
-       ctx.answerCbQuery();
+  music.fileIds.forEach((fileId) => {
+    if (callbackData === fileId.episode) {
+      const file = fileId.id;
+      const loadingMessage = ctx.reply("در حال ارسال فایلها...");
+      ctx.replyWithAudio(file);
+      ctx.deleteMessage(loadingMessage.message_id);
+      ctx.answerCbQuery();
     }
-  })
+  });
   // if (callbackData === music.fileIds[0].episode) {
   //   const fileId = music.fileIds[0].id
   //   await ctx.reply("موزیک مربوط به موزیک آغازین");
