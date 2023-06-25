@@ -39,7 +39,7 @@ bot.command("sagamusic", (ctx) => {
 });
 
 bot.action("ep1", (ctx) => {
-  ctx.reply("https://t.me/c/1964922321/2")
+  ctx.forwardMessage()
   ctx.answerCbQuery();
 });
 
