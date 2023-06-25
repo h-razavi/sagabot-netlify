@@ -28,7 +28,7 @@ bot.command("contribute", Telegraf.reply(messages.contribute));
 bot.command("podlinks", (ctx) => {
   const inlineButtons = Markup.inlineKeyboard(data.podApps);
   ctx.reply("اپلیکیشن مورد نظر رو انتخاب کنید", inlineButtons);
-});id
+});
 
 //send music
 bot.command("sagamusic", (ctx) => {
