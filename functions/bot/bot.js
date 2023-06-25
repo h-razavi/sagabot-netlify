@@ -31,32 +31,12 @@ bot.command("podlinks", (ctx) => {
 });
 
 //send music
-function forwardTrack(ctx, trackId) {
-  if (ctx.message && ctx.message.audio.file_id === `track_${trackId}`) {
-    ctx.telegram.forwardMessage(ctx.from.id, ctx.message.chat.id, ctx.message.message_id).then(() => {
-      console.log('Track forwarded');
-    });
-  } else {
-    ctx.reply('The track has not been found in the group chat.');
-  }
-}
-
 bot.command("sagamusic", (ctx) => {
   const inlineButtons = Markup.inlineKeyboard([
-    [{ text: "episode 1", callback_data: "ep 1" }],
+    [{ text: "episode 1", callback_data: "ep1" }],
   ]);
   ctx.reply("choose episode", inlineButtons);
 });
-
-function forwardTrack(ctx, trackId) {
-  if (audioMessage && audioMessage.audio.file_id === `track_${trackId}`) {
-    ctx.telegram.forwardMessage(ctx.from.id, audioMessage.chat.id, audioMessage.message_id).then(() => {
-      console.log('Track forwarded');
-    });
-  } else {
-    ctx.reply('The track has not been found in the group chat.');
-  }
-}
 
 bot.action("ep1", (ctx) => {
   ctx.telegram.forwardMessage(ctx.chat.id,"forwarded music")
