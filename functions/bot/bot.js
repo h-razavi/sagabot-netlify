@@ -7,6 +7,7 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
 //extracting messages data
 const messages = data.messages;
 const facts = data.facts;
+const music = data.music;
 
 //initializing the bot
 bot.start((ctx) => {
@@ -82,9 +83,8 @@ bot.on("callback_query", async (ctx) => {
     await ctx.answerCbQuery();
     await ctx.reply("یه دانستنی دیگه /randomfacts");
   }
-  if (callbackData === "opening") {
-    const fileId =
-      "CQACAgQAAxkBAAEi4Spkl_0Q86_3_tPwx1CjUz_paOVl6wACWBEAAunMwVCsxsJ-sJoB4S8E";
+  if (callbackData === music.fileIds[0].episode) {
+    const fileId = music.fileIds[0].id
     await ctx.reply("موزیک مربوط به موزیک آغازین");
     await ctx.replyWithAudio(fileId);
     await ctx.answerCbQuery();
