@@ -32,19 +32,22 @@ bot.command("podlinks", (ctx) => {
 
 //send music
 bot.command("sagamusic", (ctx) => {
-  const inlineButtons = Markup.inlineKeyboard([
-    [{ text: "episode 1", callback_data: "ep1" }],
-  ]);
-  ctx.reply("choose episode", inlineButtons);
+  // const inlineButtons = Markup.inlineKeyboard([
+  //   [{ text: "episode 1", callback_data: "ep1" }],
+  // ]);
+  // ctx.reply("choose episode", inlineButtons);
+  // const fileId = "AAMCBAADGQEAAdVdB2SX_rSvwrp8Gfxv15HcYeudGGuoAAJYEQAC6czBUPpELFmb46UiAQAHbQADLwQ"
+  // ctx.replyWithAudio(fileId,{title : "First"})
   const fileId = "AAMCBAADGQEAAdVdB2SX_rSvwrp8Gfxv15HcYeudGGuoAAJYEQAC6czBUPpELFmb46UiAQAHbQADLwQ"
+  ctx.reply("music is sended below")
   ctx.replyWithAudio(fileId,{title : "First"})
 });
 
-bot.action("ep1", (ctx) => {
-  const fileId = "AAMCBAADGQEAAdVdB2SX_rSvwrp8Gfxv15HcYeudGGuoAAJYEQAC6czBUPpELFmb46UiAQAHbQADLwQ"
-  ctx.replyWithAudio(fileId,{title : "First"})
-  ctx.answerCbQuery();
-});
+// bot.action("ep1", (ctx) => {
+//   const fileId = "AAMCBAADGQEAAdVdB2SX_rSvwrp8Gfxv15HcYeudGGuoAAJYEQAC6czBUPpELFmb46UiAQAHbQADLwQ"
+//   ctx.replyWithAudio(fileId,{title : "First"})
+//   ctx.answerCbQuery();
+// });
 
 //setting up facts command
 bot.command("randomfacts", (ctx) => {
