@@ -44,12 +44,10 @@ bot.command("sagamusic", (ctx) => {
   // ctx.replyWithAudio(fileId)
 });
 
-music.fileIds.forEach(fileId=>{
+music.fileIds.map(fileId=>{
   bot.action(fileId.episode, (ctx)=>{
       const file = fileId.id;
-      const loadingMessage = ctx.reply("در حال ارسال فایلها...");
       ctx.replyWithAudio(file);
-      ctx.deleteMessage(loadingMessage.message_id);
       ctx.answerCbQuery();
   })
 })
