@@ -112,6 +112,7 @@ process.once("SIGINT", () => bot.stop("SIGINT"));
 process.once("SIGTERM", () => bot.stop("SIGTERM"));
 
 exports.handler = async (event) => {
+  console.log(event.body)
   try {
     await bot.handleUpdate(JSON.parse(event.body));
     return { statusCode: 200, body: "" };
