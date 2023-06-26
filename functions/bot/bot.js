@@ -125,6 +125,7 @@ process.once("SIGTERM", () => bot.stop("SIGTERM"));
 // };
 
 exports.handler = async (event) => {
+  console.log(event.body)
   try {
     const body = JSON.parse(event.body);
     if (!body) {
