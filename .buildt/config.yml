@@ -1,0 +1,10 @@
+name: sagabot-netlify
+id: aa9af8d9-d660-46d0-8d65-e7e1d0d95928
+languages:
+  - TypeScript
+  - TSX
+extensions:
+  - .ts
+  - .cts
+  - .mts
+  - .tsx
