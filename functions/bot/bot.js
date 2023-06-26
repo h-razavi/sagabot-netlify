@@ -40,14 +40,14 @@ bot.command("sagamusic", (ctx) => {
   );
 });
 
-music.tracks.forEach(track=>{
-  bot.action(track.episode, (ctx)=>{
-      const files = track.id;
-      const mediaFiles = files.map(file => ({ type: 'audio', media: file }));
-      ctx.replyWithMediaGroup(mediaFiles)
-      ctx.answerCbQuery();
-  })
-})
+music.tracks.forEach((track) => {
+  bot.action(track.episode, (ctx) => {
+    const files = track.id;
+    const mediaFiles = files.map((file) => ({ type: "audio", media: file }));
+    ctx.replyWithMediaGroup(mediaFiles);
+    ctx.answerCbQuery();
+  });
+});
 
 //setting up facts command
 bot.command("randomfacts", (ctx) => {
