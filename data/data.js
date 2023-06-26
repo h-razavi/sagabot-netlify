@@ -135,7 +135,7 @@ const data = {
       {
         episode: "ep33",
         id: [
-          "CQACAgQAAxkBAAEi629kmYIU47apnf1pOmtjRf_ft8cP_QAC3g8AArZ00FAi-N-Mx9qdjS8E ",
+          "CQACAgQAAxkBAAEi629kmYIU47apnf1pOmtjRf_ft8cP_QAC3g8AArZ00FAi-N-Mx9qdjS8E",
           "CQACAgQAAxkBAAEi63FkmYJnmfwHmYQ7l4qbjqUQa5oPQAAC3w8AArZ00FCw_yn8qTCKtC8E",
           "CQACAgQAAxkBAAEi63NkmYKAZxDrkqZGjV5NOhvAbgNQSAAC4A8AArZ00FAkwK_GuMUPFC8E",
           "CQACAgQAAxkBAAEi63VkmYKVngmelYgH_pzy5nAHe_I8CQAC4Q8AArZ00FDQKle84RP9Qy8E",
@@ -143,11 +143,19 @@ const data = {
           "CQACAgQAAxkBAAEi63lkmYLSMHS3uBZy150lhIlELyuiNAAC3Q8AArZ00FAsf-cGunnr6S8E",
         ],
       },
+      {
+        episode: "ep32",
+        id: [
+          "CQACAgQAAxkBAAEi65VkmYRX5GPTLKBuMDU9C3DfLypcmwAC5Q8AArZ00FDhUKK7BwIsJy8E",
+          "CQACAgQAAxkBAAEi65tkmYSnXYLya9W3N1s-zrrMjLxXnAAC5g8AArZ00FCWxPA2unh0gy8E",
+          "CQACAgQAAxkBAAEi651kmYTRkfUjyTs5BAMr-vCdQlySigAC6A8AArZ00FBuBvPHX0GZey8E",
+        ],
+      },
     ],
     buttons: [
       [{ text: "موزیک آغازین", callback_data: "opening" }],
       [{ text: "اپیزود 37", callback_data: "ep37" },{ text: "اپیزود 36", callback_data: "ep36" },{ text: "اپیزود 35", callback_data: "ep35" }],
-      [{ text: "اپیزود 34", callback_data: "ep34" },{ text: "اپیزود 33", callback_data: "ep33" }],
+      [{ text: "اپیزود 34", callback_data: "ep34" },{ text: "اپیزود 33", callback_data: "ep33" },{ text: "اپیزود 32", callback_data: "ep32" }],
       [],
     ],
   },
