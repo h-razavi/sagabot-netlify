@@ -32,22 +32,22 @@ bot.command("podlinks", (ctx) => {
 });
 
 //send music
-// bot.command("sagamusic", async (ctx) => {
-//   const inlineButtons = Markup.inlineKeyboard(music.buttons);
-//   await ctx.reply(
-//     "برای شنیدن موزیکهای استفاده شده در پادکست، اپیزود مورد نظرتون رو انتخاب کنید",
-//     inlineButtons
-//   );
-// });
+bot.command("sagamusic", (ctx) => {
+  const inlineButtons = Markup.inlineKeyboard(music.buttons);
+  ctx.reply(
+    "برای شنیدن موزیکهای استفاده شده در پادکست، اپیزود مورد نظرتون رو انتخاب کنید",
+    inlineButtons
+  );
+});
 
-// music.tracks.forEach((track) => {
-//   bot.action(track.episode, async (ctx) => {
-//     const files = track.id;
-//     const mediaFiles = files.map((file) => ({ type: "audio", media: file }));
-//     await ctx.replyWithMediaGroup(mediaFiles);
-//     await ctx.answerCbQuery();
-//   });
-// });
+music.tracks.forEach(track=>{
+  bot.action(track.episode, (ctx)=>{
+      const files = track.id;
+      const mediaFiles = files.map(file => ({ type: 'audio', media: file }));
+      ctx.replyWithMediaGroup(mediaFiles)
+      ctx.answerCbQuery();
+  })
+})
 
 //setting up facts command
 bot.command("randomfacts", (ctx) => {
@@ -106,9 +106,6 @@ bot.on("callback_query", async (ctx) => {
   //   await ctx.answerCbQuery();
   // }
 });
-
-bot.launch();
-
 
 // Enable graceful stop
 process.once("SIGINT", () => bot.stop("SIGINT"));
