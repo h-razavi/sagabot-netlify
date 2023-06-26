@@ -111,31 +111,10 @@ bot.on("callback_query", async (ctx) => {
 process.once("SIGINT", () => bot.stop("SIGINT"));
 process.once("SIGTERM", () => bot.stop("SIGTERM"));
 
-// exports.handler = async (event) => {
-//   try {
-//     await bot.handleUpdate(JSON.parse(event.body));
-//     return { statusCode: 200, body: "" };
-//   } catch (e) {
-//     console.error("error in handler:", e);
-//     return {
-//       statusCode: 400,
-//       body: "This endpoint is meant for bot and telegram communication",
-//     };
-//   }
-// };
-
 exports.handler = async (event) => {
-  console.log(event.body)
   try {
-    const body = JSON.parse(event.body);
-    if (!body) {
-      throw new Error("Invalid JSON format");
-    }
-    await bot.handleUpdate(body);
-    return { 
-      statusCode: 200, 
-      body: "" 
-    };
+    await bot.handleUpdate(JSON.parse(event.body));
+    return { statusCode: 200, body: "" };
   } catch (e) {
     console.error("error in handler:", e);
     return {
@@ -144,4 +123,6 @@ exports.handler = async (event) => {
     };
   }
 };
+
+
 
