@@ -330,6 +330,7 @@ const data = {
     ],
     buttons: [
       [{ text: "موزیک آغازین", callback_data: "opening" }],
+      [{ text: "یه چیزی بفرست گوش بدیم!", callback_data: "randomtrack" }],
       [{ text: "اپیزود 37", callback_data: "ep37" },{ text: "اپیزود 36", callback_data: "ep36" },{ text: "اپیزود 35", callback_data: "ep35" }],
       [{ text: "اپیزود 34", callback_data: "ep34" },{ text: "اپیزود 33", callback_data: "ep33" },{ text: "اپیزود 32", callback_data: "ep32" }],
       [{ text: "اپیزود 31", callback_data: "ep31" },{ text: "اپیزود 30", callback_data: "ep30" },{ text: "اپیزود 29", callback_data: "ep29" }],

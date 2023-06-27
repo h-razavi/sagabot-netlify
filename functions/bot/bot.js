@@ -49,6 +49,32 @@ music.tracks.forEach(track=>{
   })
 })
 
+//send random track
+//  Function to get a random track
+function getRandomTrack(tracks) {
+  const tracksCount = tracks.length;
+  const randomTrackIndex = Math.floor(Math.random() * tracksCount);
+  return tracks[randomTrackIndex];
+}
+
+//  Function to get a random id
+function getRandomId(ids) {
+  const idsCount = ids.length;
+  const randomIdIndex = Math.floor(Math.random() * idsCount);
+  return ids[randomIdIndex];
+}
+
+function getRandomTrackId(tracks) {
+  const track = getRandomTrack(tracks);
+  return getRandomId(track.id);
+}
+
+bot.action("randomtrack",(ctx)=>{
+  const trackId = getRandomTrackId(music.tracks);
+  ctx.replyWithAudio(trackId)
+  ctx.answerCbQuery();
+})
+
 //setting up facts command
 bot.command("randomfacts", (ctx) => {
   const inlineButtons = Markup.inlineKeyboard([
