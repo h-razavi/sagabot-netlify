@@ -185,13 +185,44 @@ const data = {
           "CQACAgQAAxkBAAEi895kmoYx4920zNBhPhqVpdFZ1ZxaEwACNQ4AArZ02FBXiWDCc6kznS8E",
         ],
       },
+      {
+        episode: "ep28",
+        id: [
+          "CQACAgQAAxkBAAEi8_pkmokaoAJ2We-aTwQL2s8mCpm-9gACOA4AArZ02FCMIsjKEXixnS8E",
+          "CQACAgQAAxkBAAEi8_xkmokxzPWNC-Jwz9IS_9BZW4xpXwACOQ4AArZ02FCEtvbY22QkQi8E",
+          "CQACAgQAAxkBAAEi8_5kmolXsSbBPFmXyfvXO11QklvhdQACOg4AArZ02FDgaTO70A2Fsy8E",
+          "CQACAgQAAxkBAAEi9AJkmolvjkDKvI4VMSluZvvS2yD2zgACOw4AArZ02FAnRCr6c-P9NC8E",
+        ],
+      },
+      {
+        episode: "ep27",
+        id: [
+          "CQACAgQAAxkBAAEi9ARkmon43z--aIgM9rZBiq5kRLku3gACPA4AArZ02FBtthEt4OPD_S8E",
+          "CQACAgQAAxkBAAEi9AZkmoobmmM-Mt70LKBR88T5PaNYKAACPQ4AArZ02FCqOxPKPmCusC8E",
+          "CQACAgQAAxkBAAEi9AhkmopALE2_0sWnE0pFRarbCBndygACPw4AArZ02FCcF62G7DZISy8E",
+          "CQACAgQAAxkBAAEi9Axkmopvl1Bh3CiYzCRcjPmKv2oGRQACQA4AArZ02FA23xw5j3qHBC8E",
+        ],
+      },
+      {
+        episode: "ep26",
+        id: [
+          "CQACAgQAAxkBAAEi9BZkmosR52V-e8QG7DZZqw6MW2hrqAACQQ4AArZ02FAq-Rs176HrUy8E",
+          "CQACAgQAAxkBAAEi9Bhkmos9-F0x3kCHKmGQK43xdLDzagACQg4AArZ02FCLPy8bGNTCJS8E",
+          "CQACAgQAAxkBAAEi9BpkmotcRiKhwoaEtcEEPPkUilN50QACQw4AArZ02FDuDERq2z7LVi8E",
+          "CQACAgQAAxkBAAEi9BxkmotsZhXCGrG6q0XCa35PmhKimQACRA4AArZ02FD3TCKTHwbAIC8E",
+          "CQACAgQAAxkBAAEi9B5kmouA5pHNWOp1vpJp_Lvmwbt3wgACRQ4AArZ02FDOjAkHO1428S8E",
+          "CQACAgQAAxkBAAEi9CJkmouTqdmaR7y8jHnU2GLkNabW4wACRg4AArZ02FAs1D5OfrrjRi8E",
+          "CQACAgQAAxkBAAEi9ChkmousJnwuuH9HP3Y06h8AAX05uYMAAkcOAAK2dNhQ4KBGIijnbhYvBA",
+          "CQACAgQAAxkBAAEi9CxkmovDebXVOuIZNZTGsEK22ogf_gACSA4AArZ02FA01LkQlV56wi8E",
+        ],
+      },
     ],
     buttons: [
       [{ text: "موزیک آغازین", callback_data: "opening" }],
       [{ text: "اپیزود 37", callback_data: "ep37" },{ text: "اپیزود 36", callback_data: "ep36" },{ text: "اپیزود 35", callback_data: "ep35" }],
       [{ text: "اپیزود 34", callback_data: "ep34" },{ text: "اپیزود 33", callback_data: "ep33" },{ text: "اپیزود 32", callback_data: "ep32" }],
-      [{ text: "اپیزود 31", callback_data: "ep31" },{ text: "3اپیزود 0", callback_data: "ep30" },{ text: "اپیزود 29", callback_data: "ep29" }],
-      [],
+      [{ text: "اپیزود 31", callback_data: "ep31" },{ text: "اپیزود 30", callback_data: "ep30" },{ text: "اپیزود 29", callback_data: "ep29" }],
+      [{ text: "اپیزود 28", callback_data: "ep28" },{ text: "اپیزود 27", callback_data: "ep27" },{ text: "اپیزود 26", callback_data: "ep26" }],
     ],
   },
 };
