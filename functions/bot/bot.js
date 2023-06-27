@@ -89,22 +89,6 @@ bot.on("callback_query", async (ctx) => {
     await ctx.answerCbQuery();
     await ctx.reply("یه دانستنی دیگه /randomfacts");
   }
-
-  // music.fileIds.forEach((fileId) => {
-  //   if (callbackData === fileId.episode) {
-  //     const file = fileId.id;
-  //     const loadingMessage = ctx.reply("در حال ارسال فایلها...");
-  //     ctx.replyWithAudio(file);
-  //     ctx.deleteMessage(loadingMessage.message_id);
-  //     ctx.answerCbQuery();
-  //   }
-  // });
-  // if (callbackData === music.fileIds[0].episode) {
-  //   const fileId = music.fileIds[0].id
-  //   await ctx.reply("موزیک مربوط به موزیک آغازین");
-  //   await ctx.replyWithAudio(fileId);
-  //   await ctx.answerCbQuery();
-  // }
 });
 
 // Enable graceful stop
