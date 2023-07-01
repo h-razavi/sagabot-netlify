@@ -49,7 +49,6 @@ This project is [MIT](https://choosealicense.com/licenses/mit/) licensed.
 
 ## Contact
 
-Your Name
 - Github: [@h-razavi](https://github.com/h-razavi)
 - Email: sagapodcastir@gmail.com
 

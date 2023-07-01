@@ -82,6 +82,7 @@ bot.command("randomfacts", (ctx) => {
     [{ text: "اساطیر نورس", callback_data: "norse" }],
     [{ text: "اساطیر مصر", callback_data: "egypt" }],
     [{ text: "اساطیر ژاپن", callback_data: "japan" }],
+    [{ text: "اساطیر سلتیک (ایرلند)", callback_data: "celtic" }],
   ]);
   ctx.reply(
     "برای دریافت یک دانستنی کوتاه اساطیر مورد نظرتون رو انتخاب کنید: ",
@@ -117,12 +118,7 @@ bot.on("callback_query", async (ctx) => {
   }
 });
 
-bot.launch({
-  webhook: {
-    domain: 'https://sagapodcast-bot.netlify.app/api/bot',
-    port: 4000
-  }
-})
+
 
 // Enable graceful stop
 process.once("SIGINT", () => bot.stop("SIGINT"));
