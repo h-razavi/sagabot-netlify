@@ -117,6 +117,13 @@ bot.on("callback_query", async (ctx) => {
   }
 });
 
+bot.launch({
+  webhook: {
+    domain: 'https://sagapodcast-bot.netlify.app/api/bot',
+    port: 4000
+  }
+})
+
 // Enable graceful stop
 process.once("SIGINT", () => bot.stop("SIGINT"));
 process.once("SIGTERM", () => bot.stop("SIGTERM"));
