@@ -118,6 +118,10 @@ bot.on("callback_query", async (ctx) => {
   }
 });
 
+bot.launch({
+  webhook:"https://sagapodcast-bot.netlify.app/api/bot"
+})
+
 
 
 // Enable graceful stop
@@ -136,3 +140,5 @@ exports.handler = async (event) => {
     };
   }
 };
+
+ 
