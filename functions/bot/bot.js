@@ -10,15 +10,22 @@ const messages = data.messages;
 const facts = data.facts;
 const music = data.music;
 
+   bot.launch({
+     webhook: {
+       domain: 'https://sagapodcast-bot.netlify.app/api/bot',
+       port: 4000
+     }
+   });
+
 //initializing the bot
-bot.start((ctx) => {
-  try {
-    return ctx.reply(messages.start);
-  } catch (e) {
-    console.error("error in start action:", e);
-    return ctx.reply("Error occured");
-  }
-});
+// bot.start((ctx) => {
+//   try {
+//     return ctx.reply(messages.start);
+//   } catch (e) {
+//     console.error("error in start action:", e);
+//     return ctx.reply("Error occured");
+//   }
+// });
 
 //setting up help command
 bot.help((ctx) => ctx.reply(messages.help));
@@ -119,12 +126,6 @@ bot.on("callback_query", async (ctx) => {
   }
 });
 
-   bot.launch({
-     webhook: {
-       domain: 'https://sagapodcast-bot.netlify.app/api/bot',
-       port: 3000
-     }
-   });
 
 
 
