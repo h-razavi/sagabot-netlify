@@ -2,7 +2,6 @@
 const { Telegraf, Markup } = require("telegraf");
 require("dotenv").config();
 const data = require("../../data/data.js");
-const { url } = require("telegraf/typings/button.js");
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
 //extracting messages data
