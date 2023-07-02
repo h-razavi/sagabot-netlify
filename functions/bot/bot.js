@@ -118,9 +118,7 @@ bot.on("callback_query", async (ctx) => {
   }
 });
 
-bot.launch({
-  webhook:"https://sagapodcast-bot.netlify.app/api/bot"
-})
+bot.launch();
 
 
 
