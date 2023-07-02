@@ -18,14 +18,14 @@ const music = data.music;
    });
 
 //initializing the bot
-// bot.start((ctx) => {
-//   try {
-//     return ctx.reply(messages.start);
-//   } catch (e) {
-//     console.error("error in start action:", e);
-//     return ctx.reply("Error occured");
-//   }
-// });
+bot.start((ctx) => {
+  try {
+    return ctx.reply(messages.start);
+  } catch (e) {
+    console.error("error in start action:", e);
+    return ctx.reply("Error occured");
+  }
+});
 
 //setting up help command
 bot.help((ctx) => ctx.reply(messages.help));
