@@ -10,13 +10,6 @@ const messages = data.messages;
 const facts = data.facts;
 const music = data.music;
 
-   bot.launch({
-     webhook: {
-       domain: 'https://sagapodcast-bot.netlify.app/api/bot',
-       port: 4000
-     }
-   });
-
 //initializing the bot
 bot.start((ctx) => {
   try {
