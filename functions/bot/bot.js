@@ -118,7 +118,11 @@ bot.on("callback_query", async (ctx) => {
   }
 });
 
-
+bot.launch({
+  webhook: {
+    domain: 'https://sagapodcast-bot.netlify.app/api/bot',
+  }
+});
 
 
 // Enable graceful stop
