@@ -28,10 +28,14 @@ The link to this repository and instructions on how to contribute in developing 
 Before you start, make sure to have Node.js installed.
 
 1. Clone this repository.
-git clone https://github.com/yourusername/mytelegrambot.git
-
+```sh
+git clone https://github.com/h-razavi/sagapodcast-bot
+```
 2. Navigate to the project directory and install dependencies:
+
+```sh
 cd sagapodcast-bot npm install
+```
 
 3. Make your changes and send a pull request.
 
