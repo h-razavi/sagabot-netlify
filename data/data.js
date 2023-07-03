@@ -268,9 +268,6 @@ const data = {
           "CQACAgQAAxkBAAEi9KxkmpNJ45Vd6f6RFqe5JDO_miH-HgAC1BEAAoQm0FB1eBq52c5kmC8E",
           "CQACAgQAAxkBAAEi9K5kmpOEi8snAxlLFDICEjje9afqHwAC1hEAAoQm0FCBjNOxxrXvcC8E",
           "CQACAgQAAxkBAAEi9LJkmpOd03ZauInS8eFkSQABbzZ9eEkAAtcRAAKEJtBQFtMscsMS3b4vBA",
-          "CQACAgQAAxkBAAEi9LZkmpOuUCLAnLPKZDrLPBBDg0ubpAAC2BEAAoQm0FDn9xVjLroCnC8E",
-          "CQACAgQAAxkBAAEi9LpkmpO_F2s8gzvEsQpSKaJMNtNNyAAC2REAAoQm0FBVd4xaXyXz4y8E",
-          "CQACAgQAAxkBAAEi9LxkmpPZq-V7jCNi1JrB0qmDCAW27AAC2hEAAoQm0FAswJtwOBDdbi8E",
         ],
       },
       {
