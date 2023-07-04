@@ -3,7 +3,8 @@ const { Telegraf, Markup } = require("telegraf");
 require("dotenv").config();
 const data = require("../../data/data.js");
 const bot = new Telegraf(process.env.BOT_TOKEN);
-const axios = require('axios');
+// const axios = require('axios');
+const {createServer} = require("https")
 
 //extracting messages data
 const messages = data.messages;
@@ -120,21 +121,23 @@ bot.on("callback_query", async (ctx) => {
   }
 });
 
-bot.telegram.setWebhook("https://sagapodcast-bot.netlify.app/api/bot");
+// bot.telegram.setWebhook("https://sagapodcast-bot.netlify.app/api/bot");
 
-const setWebhook = async () => {
-  const response = await axios.post('https://api.telegram.org/bot6202538788:AAHsFcVu2HCrFw6JR7bPLAWw5MRycY35Iac/setWebhook', {
-    url: 'https://sagapodcast-bot.netlify.app/api/bot',
-  });
+// const setWebhook = async () => {
+//   const response = await axios.post('https://api.telegram.org/bot6202538788:AAHsFcVu2HCrFw6JR7bPLAWw5MRycY35Iac/setWebhook', {
+//     url: 'https://sagapodcast-bot.netlify.app/api/bot',
+//   });
 
-  if (response.status === 200) {
-    console.log('Webhook set successfully');
-  } else {
-    console.log('Error setting webhook:', response.status, response.data);
-  }
-};
+//   if (response.status === 200) {
+//     console.log('Webhook set successfully');
+//   } else {
+//     console.log('Error setting webhook:', response.status, response.data);
+//   }
+// };
 
-setInterval(setWebhook, 30 * 60 * 1000);
+// setInterval(setWebhook, 30 * 60 * 1000);
+
+createServer(tlsOptions, await bot.createWebhook({ domain: "https://api.telegram.org/bot6202538788:AAHsFcVu2HCrFw6JR7bPLAWw5MRycY35Iac/setWebhook?url=https://sagapodcast-bot.netlify.app/api/bot" })).listen(8443);
 
 
 // Enable graceful stop
