@@ -1,9 +1,18 @@
 //setting up the environment
 const { Telegraf, Markup } = require("telegraf");
+const rateLimit = require('telegraf-ratelimit');
 require("dotenv").config();
 const data = require("../../data/data.js");
 const bot = new Telegraf(process.env.BOT_TOKEN);
-const axios = require('axios');
+
+// Set limit to 1 message per 3 seconds
+const limitConfig = {
+  window: 3000,
+  limit: 1,
+  onLimitExceeded: (ctx, next) => ctx.reply('Rate limit exceeded')
+}
+
+bot.use(rateLimit(limitConfig))
 
 //extracting messages data
 const messages = data.messages;
@@ -19,6 +28,8 @@ bot.start((ctx) => {
     return ctx.reply("Error occured");
   }
 });
+
+
 
 //setting up help command
 bot.help((ctx) => ctx.reply(messages.help));
@@ -120,21 +131,11 @@ bot.on("callback_query", async (ctx) => {
   }
 });
 
+bot.launch({
+  webhook: "https://sagapodcast-bot.netlify.app/api/bot"
+})
+
 bot.telegram.setWebhook("https://sagapodcast-bot.netlify.app/api/bot");
-
-const setWebhook = async () => {
-  const response = await axios.post('https://api.telegram.org/bot6202538788:AAHsFcVu2HCrFw6JR7bPLAWw5MRycY35Iac/setWebhook', {
-    url: 'https://sagapodcast-bot.netlify.app/api/bot',
-  });
-
-  if (response.status === 200) {
-    console.log('Webhook set successfully');
-  } else {
-    console.log('Error setting webhook:', response.status, response.data);
-  }
-};
-
-setInterval(setWebhook, 30 * 60 * 1000);
 
 
 // Enable graceful stop
