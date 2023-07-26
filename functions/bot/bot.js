@@ -110,6 +110,8 @@ bot.on("message", (ctx) => {
     return ctx.telegram
       .forwardMessage(chatId, ctx.chat.id, ctx.message.message_id)
       .then(() => ctx.reply("✅ پیام شما با موفقیت دریافت شد! "));
+  } else if(ctx.message.audio) {
+      ctx.reply(`File ID: ${ctx.message.audio.file_id}`)
   } else {
     return ctx.reply(messages.notext);
   }
