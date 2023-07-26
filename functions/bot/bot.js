@@ -47,45 +47,45 @@ bot.command("podlinks", (ctx) => {
 bot.command("sagamusic", (ctx) => {
   const inlineButtons = Markup.inlineKeyboard(music.buttons);
   ctx.reply(
-    "برای شنیدن موزیکهای استفاده شده در پادکست، اپیزود مورد نظرتون رو انتخاب کنید",
+    "از کجا می‌خواید آهنگ‌ها رو بشنوید",
     inlineButtons
   );
 });
 
-music.tracks.forEach(track=>{
-  bot.action(track.episode, (ctx)=>{
-      const files = track.id;
-      const mediaFiles = files.map(file => ({ type: 'audio', media: file }));
-      ctx.replyWithMediaGroup(mediaFiles)
-      ctx.answerCbQuery();
-  })
-})
+// music.tracks.forEach(track=>{
+//   bot.action(track.episode, (ctx)=>{
+//       const files = track.id;
+//       const mediaFiles = files.map(file => ({ type: 'audio', media: file }));
+//       ctx.replyWithMediaGroup(mediaFiles)
+//       ctx.answerCbQuery();
+//   })
+// })
 
 //send random track
 //  Function to get a random track
-function getRandomTrack(tracks) {
-  const tracksCount = tracks.length;
-  const randomTrackIndex = Math.floor(Math.random() * tracksCount);
-  return tracks[randomTrackIndex];
-}
+// function getRandomTrack(tracks) {
+//   const tracksCount = tracks.length;
+//   const randomTrackIndex = Math.floor(Math.random() * tracksCount);
+//   return tracks[randomTrackIndex];
+// }
 
 //  Function to get a random id
-function getRandomId(ids) {
-  const idsCount = ids.length;
-  const randomIdIndex = Math.floor(Math.random() * idsCount);
-  return ids[randomIdIndex];
-}
+// function getRandomId(ids) {
+//   const idsCount = ids.length;
+//   const randomIdIndex = Math.floor(Math.random() * idsCount);
+//   return ids[randomIdIndex];
+// }
 
-function getRandomTrackId(tracks) {
-  const track = getRandomTrack(tracks);
-  return getRandomId(track.id);
-}
+// function getRandomTrackId(tracks) {
+//   const track = getRandomTrack(tracks);
+//   return getRandomId(track.id);
+// }
 
-bot.action("randomtrack",(ctx)=>{
-  const trackId = getRandomTrackId(music.tracks);
-  ctx.replyWithAudio(trackId)
-  ctx.answerCbQuery();
-})
+// bot.action("randomtrack",(ctx)=>{
+//   const trackId = getRandomTrackId(music.tracks);
+//   ctx.replyWithAudio(trackId)
+//   ctx.answerCbQuery();
+// })
 
 //setting up facts command
 bot.command("randomfacts", (ctx) => {
@@ -110,8 +110,6 @@ bot.on("message", (ctx) => {
     return ctx.telegram
       .forwardMessage(chatId, ctx.chat.id, ctx.message.message_id)
       .then(() => ctx.reply("✅ پیام شما با موفقیت دریافت شد! "));
-  } else if(ctx.message.audio) {
-      ctx.reply(`File ID: ${ctx.message.audio.file_id}`)
   } else {
     return ctx.reply(messages.notext);
   }
@@ -133,7 +131,6 @@ bot.on("callback_query", async (ctx) => {
   }
 });
 
-bot.telegram.setWebhook("https://sagapodcast-bot.netlify.app/api/bot");
 
 
 // Enable graceful stop

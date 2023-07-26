@@ -103,7 +103,7 @@ const data = {
     ],
   },
   music: {
-    tracks: [
+    /*tracks: [
       {
         episode: "opening",
         id: [
@@ -374,12 +374,11 @@ const data = {
           "CQACAgQAAxkBAAITN2TA3np02DH00axoRM0hMKc-bGA_AAJWGAAChCbgUHSCP9muZ9_XLwQ",
         ],
       },
-    ],
+    ],*/
     buttons: [
-      [{ text: "موزیک آغازین", callback_data: "opening" }],
-      [{ text: "یه چیزی بفرست گوش بدیم!", callback_data: "randomtrack" }],
       [{ text: "پلی لیست Spotify", url: "https://open.spotify.com/playlist/1MGR3D30ambG0ubqx8WBMU?si=6fb50bb6e6ce4dae" }],
-      [{ text: "اپیزود 37", callback_data: "ep37" },{ text: "اپیزود 36", callback_data: "ep36" },{ text: "اپیزود 35", callback_data: "ep35" }],
+      [{ text: "کانال تلگرام Saga Music", url: "https://t.me/sagapodcast_music" }],
+      /*[{ text: "اپیزود 37", callback_data: "ep37" },{ text: "اپیزود 36", callback_data: "ep36" },{ text: "اپیزود 35", callback_data: "ep35" }],
       [{ text: "اپیزود 34", callback_data: "ep34" },{ text: "اپیزود 33", callback_data: "ep33" },{ text: "اپیزود 32", callback_data: "ep32" }],
       [{ text: "اپیزود 31", callback_data: "ep31" },{ text: "اپیزود 30", callback_data: "ep30" },{ text: "اپیزود 29", callback_data: "ep29" }],
       [{ text: "اپیزود 28", callback_data: "ep28" },{ text: "اپیزود 27", callback_data: "ep27" },{ text: "اپیزود 26", callback_data: "ep26" }],
@@ -387,7 +386,7 @@ const data = {
       [{ text: "اپیزود 22", callback_data: "ep22" },{ text: "اپیزود 21", callback_data: "ep21" },{ text: "اپیزود 20", callback_data: "ep20" }],
       [{ text: "اپیزود 19", callback_data: "ep19" },{ text: "اپیزود 18", callback_data: "ep18" },{ text: "اپیزود 17", callback_data: "ep17" }],
       [{ text: "اپیزود 16", callback_data: "ep16" },{ text: "اپیزود 15", callback_data: "ep15" },{ text: "اپیزود 14", callback_data: "ep14" }],
-      [{ text: "اپیزود 13", callback_data: "ep13" },{ text: "اپیزود 12", callback_data: "ep12" },{ text: "اپیزود 11", callback_data: "ep11" }],
+      [{ text: "اپیزود 13", callback_data: "ep13" },{ text: "اپیزود 12", callback_data: "ep12" },{ text: "اپیزود 11", callback_data: "ep11" }],*/
     ],
   },
 };
