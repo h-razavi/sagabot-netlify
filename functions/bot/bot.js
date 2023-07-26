@@ -8,7 +8,7 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
 // Set limit to 1 message per 3 seconds
 const limitConfig = {
   window: 3000,
-  limit: 1,
+  limit: 3,
   onLimitExceeded: (ctx, next) => ctx.reply('Rate limit exceeded')
 }
 
