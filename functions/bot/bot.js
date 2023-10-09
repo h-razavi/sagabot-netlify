@@ -106,7 +106,7 @@ bot.command("randomfacts", (ctx) => {
 //setting up message forwarding behaviour
 bot.on("message", (ctx) => {
   const chatId = process.env.CHAT_ID;
-  if (ctx.message.text || ctx.message.voice) {
+  if (ctx.message.text || ctx.message.voice || ctx.message.photo) {
     return ctx.telegram
       .forwardMessage(chatId, ctx.chat.id, ctx.message.message_id)
       .then(() => ctx.reply("✅ پیام شما با موفقیت دریافت شد! "));
